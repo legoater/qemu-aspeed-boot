@@ -82,7 +82,7 @@ spawn_qemu()
 
     case "$machine" in
 	*evb)
-	    timeout=20
+	    timeout=40
 	    machine_args="-M ${machine}"
 	    drive_args="-drive file=${fwdir}/flash.img,format=raw,if=mtd"
 	    ;;
