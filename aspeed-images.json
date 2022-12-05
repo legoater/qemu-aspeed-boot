@@ -1,0 +1,22 @@
+[
+    {
+	"machine" : "ast2500-evb",
+	"image" : "buildroot-2022.05/flash.img",
+	"timeout" : 30
+    },
+    {
+	"machine" : "ast2500-evb",
+	"image" : "buildroot-2022.11-2-g15d3648df9/flash.img",
+	"timeout" : 30
+    },
+    {
+	"machine" : "ast2600-evb",
+	"image" : "buildroot-2022.05/flash.img",
+	"timeout" : 30
+    },
+    {
+	"machine" : "ast2600-evb",
+	"image" : "buildroot-2022.11-2-g15d3648df9/flash.img",
+	"timeout" : 30
+    }
+]
