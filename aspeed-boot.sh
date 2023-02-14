@@ -104,7 +104,8 @@ spawn_qemu()
     local image=$2
     local timeout=$3
     local poweroff=$4
-    local stop_step=$5
+    local password=$5
+    local stop_step=$6
 
     # TODO: should "mmc" be a field in the test definition ?
     case "$image" in
@@ -202,7 +203,7 @@ expect {
 send "root\r"
 expect {
     timeout               { error "TIMEOUT"; exit 1 }
-    "Password:"           { send "0penBmc\r"; exp_continue }
+    "Password:"           { send "$password\r"; exp_continue }
     "#"
 }
 send "$poweroff\r"
@@ -230,15 +231,16 @@ for m in $tests_machines; do
     # Array of struct defining the tests to run 
     #
     # @machine: the QEMU target machine
-    # @image: the relative path of the FW image (flash of eMMC). The top
+    # @image: the relative path of the FW image (flash or eMMC). The top
     #         directory being ./images
     # @timeout: maximum expected duration of the test
     # @poweroff: custom poweroff command
-    # @stop_step: Optional (for activation only)
+    # @password: custom root password
+    # @stop_step: Optional
     # @excluded: do not run the test
     #
     jq -c ".[] | select(.machine==\"$m\")" $config | while read entry; do
-	for field in machine image timeout poweroff stop_step excluded; do
+	for field in machine image timeout poweroff password stop_step excluded; do
 	    eval $field=\""$(echo $entry | jq -r .$field)"\"
 	done
 
@@ -259,7 +261,7 @@ for m in $tests_machines; do
 	fi
 
 	start=$(date +%s)
-	spawn_qemu $machine $image_path $timeout "$poweroff" $stop_step &&
+	spawn_qemu $machine $image_path $timeout "$poweroff" $password $stop_step &&
 	    pass=$PASSED || pass=$FAILED
 	end=$(date +%s)
 	echo " $pass ($(($end-$start))s)" >&3
