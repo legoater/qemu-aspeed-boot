@@ -110,7 +110,7 @@ spawn_qemu()
     # TODO: should "mmc" be a field in the test definition ?
     case "$image" in
 	*mmc*)
-	    drive_args="-drive file=$image,format=qcow2,if=sd,id=sd0,index=2"
+	    drive_args="-drive file=$image,format=qcow2,if=sd,id=sd2,index=2"
 	    if [ "$machine" == "ast2600-evb" ]; then
 		machine="${machine},boot-emmc=true"
 	    fi
@@ -122,7 +122,7 @@ spawn_qemu()
 
     qemu_cmd="$qemu -M ${machine}"
     qemu_cmd="$qemu_cmd $drive_args -nic user"
-    qemu_cmd="$qemu_cmd -serial stdio -nodefaults -nographic -snapshot"
+    qemu_cmd="$qemu_cmd -nographic -snapshot"
 
     if [ -n "$dryrun" ]; then
 	return 0
