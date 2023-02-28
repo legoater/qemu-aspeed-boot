@@ -239,7 +239,7 @@ for m in $tests_machines; do
     # @stop_step: Optional
     # @excluded: do not run the test
     #
-    jq -c ".[] | select(.machine==\"$m\")" $config | while read entry; do
+    jq -c ".[] | select(.machine | contains(\"$m\"))" $config | while read entry; do
 	for field in machine image timeout poweroff password stop_step excluded; do
 	    eval $field=\""$(echo $entry | jq -r .$field)"\"
 	done
