@@ -17,7 +17,7 @@ step="null"
 extra_args="null"
 config="./aspeed-images.json"
 
-default_machines="ast2500-evb ast2600-evb"
+default_machines="palmetto-bmc ast2500-evb romulus-bmc witherspoon-bmc ast2600-evb"
 
 PASSED="[32mPASSED[0m"
 FAILED="[31mFAILED[0m"

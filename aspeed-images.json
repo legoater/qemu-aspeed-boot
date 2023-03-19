@@ -1,5 +1,11 @@
 [
     {
+	"machine" : "palmetto-bmc",
+	"image" : "openbmc-20230228025050/flash-palmetto",
+	"timeout" : 80,
+	"password" : "0penBmc"
+    },
+    {
 	"machine" : "ast2500-evb",
 	"image" : "buildroot-2022.11-2-g15d3648df9/flash.img",
 	"timeout" : 30
@@ -9,6 +15,18 @@
 	"image" : "buildroot-2023.02/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
+    },
+    {
+	"machine" : "romulus-bmc",
+	"image" : "openbmc-20230228030340/flash-romulus",
+	"timeout" : 80,
+	"password" : "0penBmc"
+    },
+    {
+	"machine" : "witherspoon-bmc",
+	"image" : "openbmc-20230228025052/obmc-phosphor-image-witherspoon-20230228025052.ubi.mtd",
+	"timeout" : 80,
+	"password" : "0penBmc"
     },
     {
 	"machine" : "ast2600-evb",
