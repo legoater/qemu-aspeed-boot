@@ -17,6 +17,12 @@
 	"password" : "passw0rd"
     },
     {
+	"machine" : "ast2500-evb",
+	"image" : "buildroot-2023.11/flash.img",
+	"timeout" : 30,
+	"password" : "passw0rd"
+    },
+    {
 	"machine" : "romulus-bmc",
 	"image" : "openbmc-20230228030340/flash-romulus",
 	"timeout" : 80,
@@ -36,6 +42,12 @@
     {
 	"machine" : "ast2600-evb",
 	"image" : "buildroot-2023.02/flash.img",
+	"timeout" : 30,
+	"password" : "passw0rd"
+    },
+    {
+	"machine" : "ast2600-evb",
+	"image" : "buildroot-2023.11/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
     }
