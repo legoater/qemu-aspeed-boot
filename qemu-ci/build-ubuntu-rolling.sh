@@ -1,1 +1,1 @@
-build-ubuntu-22.04.sh
+build.sh
