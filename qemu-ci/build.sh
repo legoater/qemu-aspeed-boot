@@ -4,7 +4,7 @@ set -uo pipefail
 set -e
 set -vx
 
-git clone --depth=1 -b aspeed-9.0 https://github.com/legoater/qemu.git
+git clone --depth=1 -b aspeed-9.1 https://github.com/legoater/qemu.git
 cd qemu
 export CC="ccache gcc"
 export CXX="ccache g++"
