@@ -1,10 +1,12 @@
 #!/bin/bash
 
+branch="aspeed-9.2"
+
 set -uo pipefail
 set -e
 set -vx
 
-git clone --depth=1 -b aspeed-9.1 https://github.com/legoater/qemu.git
+git clone --depth=1 -b $branch https://github.com/legoater/qemu.git
 cd qemu
 export CC="ccache gcc"
 export CXX="ccache g++"
