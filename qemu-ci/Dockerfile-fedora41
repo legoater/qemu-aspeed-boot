@@ -1,4 +1,4 @@
-FROM fedora:40
+FROM fedora:41
 RUN dnf -y update
 RUN dnf -y install --allowerasing gcc git xz make gcc ninja-build glib2-devel git pixman-devel libslirp-devel ccache expect jq bzip2 diffutils findutils
 COPY . /build/
