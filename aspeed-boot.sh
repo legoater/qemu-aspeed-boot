@@ -83,11 +83,12 @@ do
     esac
 done
 
-qemu="$qemu_prefix/bin/qemu-system-arm"
-if [ ! -f "$qemu" ]; then
-    echo "$me: no QEMU binaries in \"$qemu_prefix\" directory"
-    exit 1
-fi
+for arch in arm aarch64; do
+    if [ ! -f "$qemu_prefix/bin/qemu-system-$arch" ]; then
+	echo "$me: no $arch QEMU binaries in \"$qemu_prefix\" directory"
+	exit 1
+    fi
+done
 
 spawn_qemu()
 {
@@ -111,9 +112,31 @@ spawn_qemu()
 	    ;;
     esac
 
-    qemu_cmd="$qemu -M ${machine}"
-    qemu_cmd="$qemu_cmd $drive_args -nic user"
-    qemu_cmd="$qemu_cmd -nographic -snapshot"
+    case "$machine" in
+	*ast2700*)
+	    qemu="$qemu_prefix/bin/qemu-system-aarch64"
+
+	    uboot_size=$(stat --format=%s -L ${image}/u-boot-nodtb.bin)
+	    uboot_dtb_addr=$((0x400000000 + ${uboot_size}))
+	    loader_args="$qemu_cmd \
+-device loader,addr=0x400000000,file=${image}/u-boot-nodtb.bin,force-raw=on \
+-device loader,addr=${uboot_dtb_addr},file=${image}/u-boot.dtb,force-raw=on \
+-device loader,addr=0x430000000,file=${image}/bl31.bin,force-raw=on \
+-device loader,addr=0x430080000,file=${image}/optee/tee-raw.bin,force-raw=on \
+-device loader,addr=0x430000000,cpu-num=0 \
+-device loader,addr=0x430000000,cpu-num=1 \
+-device loader,addr=0x430000000,cpu-num=2 \
+-device loader,addr=0x430000000,cpu-num=3 \
+-drive file=$image/image-bmc,format=raw,if=mtd"
+	    qemu_cmd="$qemu -M ${machine} -m 8G -smp 4 $loader_args"
+	    ;;
+	*)
+	    qemu="$qemu_prefix/bin/qemu-system-arm"
+	    qemu_cmd="$qemu -M ${machine} $drive_args"
+	    ;;
+    esac
+
+    qemu_cmd="$qemu_cmd -nic user -nographic -snapshot"
 
     if [ -n "$dryrun" ]; then
 	return 0
