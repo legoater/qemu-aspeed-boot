@@ -200,6 +200,7 @@ expect {
 send "$poweroff\r"
 expect {
     timeout               { error "TIMEOUT"; exit 1 }
+    "Execute poweroff -f" { info "poweroff"; exit 0 }
     "shutdown-sh#"        { info "poweroff"; exit 0 }
     "System halted"       { info "poweroff"; exit 0 }
     "Restarting system"   { info "poweroff"; exit 0 }
