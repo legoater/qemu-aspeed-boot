@@ -1,83 +1,83 @@
 [
     {
 	"machine" : "palmetto-bmc",
-	"image" : "openbmc-20230228025050/flash-palmetto",
+	"image" : "images/palmetto-bmc/openbmc-20230228025050/flash-palmetto",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
 	"machine" : "palmetto-bmc",
-	"image" : "openbmc-20250128071432/obmc-phosphor-image-palmetto-20250128071432.static.mtd",
+	"image" : "images/palmetto-bmc/openbmc-20250128071432/obmc-phosphor-image-palmetto-20250128071432.static.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
 	"machine" : "ast2500-evb",
-	"image" : "buildroot-2022.11-2-g15d3648df9/flash.img",
+	"image" : "images/ast2500-evb/buildroot-2022.11-2-g15d3648df9/flash.img",
 	"timeout" : 30
     },
     {
 	"machine" : "ast2500-evb",
-	"image" : "buildroot-2023.02/flash.img",
+	"image" : "images/ast2500-evb/buildroot-2023.02/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
     },
     {
 	"machine" : "ast2500-evb",
-	"image" : "buildroot-2023.11/flash.img",
+	"image" : "images/ast2500-evb/buildroot-2023.11/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
     },
     {
 	"machine" : "ast2500-evb",
-	"image" : "buildroot-2024.11/flash.img",
+	"image" : "images/ast2500-evb/buildroot-2024.11/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
     },
     {
 	"machine" : "romulus-bmc",
-	"image" : "openbmc-20230228030340/flash-romulus",
+	"image" : "images/romulus-bmc/openbmc-20230228030340/flash-romulus",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
 	"machine" : "romulus-bmc",
-	"image" : "openbmc-20250128071340/obmc-phosphor-image-romulus-20250128071340.static.mtd",
+	"image" : "images/romulus-bmc/openbmc-20250128071340/obmc-phosphor-image-romulus-20250128071340.static.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
 	"machine" : "witherspoon-bmc",
-	"image" : "openbmc-20230228025052/obmc-phosphor-image-witherspoon-20230228025052.ubi.mtd",
+	"image" : "images/witherspoon-bmc/openbmc-20230228025052/obmc-phosphor-image-witherspoon-20230228025052.ubi.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
 	"machine" : "witherspoon-bmc",
-	"image" : "openbmc-20240618035022/obmc-phosphor-image-witherspoon-20240618035022.ubi.mtd",
+	"image" : "images/witherspoon-bmc/openbmc-20240618035022/obmc-phosphor-image-witherspoon-20240618035022.ubi.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
 	"machine" : "ast2600-evb",
-	"image" : "buildroot-2022.11-2-g15d3648df9/flash.img",
+	"image" : "images/ast2600-evb/buildroot-2022.11-2-g15d3648df9/flash.img",
 	"timeout" : 30
     },
     {
 	"machine" : "ast2600-evb",
-	"image" : "buildroot-2023.02/flash.img",
+	"image" : "images/ast2600-evb/buildroot-2023.02/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
     },
     {
 	"machine" : "ast2600-evb",
-	"image" : "buildroot-2023.11/flash.img",
+	"image" : "images/ast2600-evb/buildroot-2023.11/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
     },
     {
 	"machine" : "ast2600-evb",
-	"image" : "buildroot-2024.11/flash.img",
+	"image" : "images/ast2600-evb/buildroot-2024.11/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
     }

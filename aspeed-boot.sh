@@ -9,7 +9,6 @@
 me=${0##*/}
 
 qemu_prefix="/usr"
-root_dir="."
 quiet=
 dryrun=
 linux_quiet=
@@ -42,7 +41,6 @@ Known values for OPTION are:
     -q|--quiet		all outputs are redirected to a logfile per machine
     -Q|--linux-quiet	Add 'quiet' to Linux parameters
     -p|--prefix	<DIR>	install prefix of QEMU binaries. Defaults to "$qemu_prefix".
-    -r|--root <DIR>	top directory for FW images. Defaults to "$root_dir".
     -c|--config	<FILE>	JSON file list FW images to run. Defaults to "$config".
     -s|--step <STEP>	Stop test at step: FW, Linux, login
     -n|--dry-run	trial run
@@ -63,7 +61,7 @@ for cmd in jq expect; do
     fi
 done
 
-options=`getopt -o hqQp:r:s:nc: -l help,quiet,linux-quiet,root:,prefix:,step:,dry-run,config: -- "$@"`
+options=`getopt -o hqQp:s:nc: -l help,quiet,linux-quiet,prefix:,step:,dry-run,config: -- "$@"`
 if [ $? -ne 0 ]
 then
         usage
@@ -77,7 +75,6 @@ do
 	-q|--quiet)	quiet=1; shift 1;;
 	-Q|--linux-quiet)	linux_quiet=1; shift 1;;
 	-p|--prefix)	qemu_prefix="$2"; shift 2;;
-	-r|--root)	root_dir="$2"; shift 2;;
 	-s|--step)	step="$2"; shift 2;;
 	-n|--dry-run)	dryrun=1; shift 2;;
 	-c|--config)    config="$2"; shift 2;;
@@ -89,12 +86,6 @@ done
 qemu="$qemu_prefix/bin/qemu-system-arm"
 if [ ! -f "$qemu" ]; then
     echo "$me: no QEMU binaries in \"$qemu_prefix\" directory"
-    exit 1
-fi
-
-image_dir="$root_dir/images"
-if [ ! -d "$image_dir" ]; then
-    echo "$me: unknown \"$image_dir\" directory for firmware images"
     exit 1
 fi
 
@@ -254,8 +245,8 @@ for m in $tests_machines; do
 
 	echo -n "$machine - $image : " >&3
 
-	image_path="$image_dir/$machine/$image"
-	if [ ! -f "$image_path" ]; then
+	image_path="$image"
+	if [ ! -e "$image_path" ]; then
 	    echo "invalid image"  >&3
 	    continue;
 	fi
