@@ -7,6 +7,10 @@ Aspeed machines supported in QEMU.
 
 * `ast2500-evb`
 * `ast2600-evb`
+* `bletchley-bmc`
+* `palmetto-bmc`
+* `romulus-bmc`
+* `witherspoon-bmc`
 
 ## Building
 
