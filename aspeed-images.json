@@ -110,5 +110,11 @@
     "image" : "images/bletchley-bmc/openbmc-20250128071329/obmc-phosphor-image-bletchley-20250128071329.static.mtd.xz",
     "timeout" : 80,
     "password" : "0penBmc"
+    },
+    {
+    "machine" : "gb200nvl-bmc",
+    "image" : "images/gb200nvl-obmc/openbmc-20250702182348/obmc-phosphor-image-gb200nvl-obmc-20250702182348.static.mtd.xz",
+    "timeout" : 80,
+    "password" : "0penBmc"
     }
 ]
