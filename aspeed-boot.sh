@@ -196,7 +196,7 @@ expect {
                           }
 
     "Linux version "      { info "Linux "; exp_continue }
-    "/init as init"       { check_step "Linux" 
+    "/init as init"       { check_step "Linux"
                             info "/init "; exp_continue
                           }
 
@@ -243,7 +243,7 @@ for m in $tests_machines; do
     rm -f $logfile
 
     #
-    # Array of struct defining the tests to run 
+    # Array of struct defining the tests to run
     #
     # @machine: the QEMU target machine
     # @image: the relative path of the FW image (flash or eMMC). The top
