@@ -54,7 +54,7 @@ EOF
 }
 
 # Requirements
-for cmd in jq expect; do
+for cmd in jq expect xz; do
     if ! command -v $cmd &> /dev/null; then
 	echo "$me: Please install '$cmd' command"
 	exit 1
@@ -275,10 +275,25 @@ for m in $tests_machines; do
 	    continue;
 	fi
 
+	# Check if image_path ends in .xz and uncompress to temporary file if so
+	uncompressed_image=""
+	if [[ "$image_path" == *.xz ]]; then
+	    uncompressed_image=$(mktemp)
+	    echo "Uncompressing $image_path to $uncompressed_image" >&3
+	    xz -d -c "$image_path" > "$uncompressed_image"
+	    image_path="$uncompressed_image"
+	fi
+
 	start=$(date +%s)
 	spawn_qemu $machine $image_path $timeout "$poweroff" $password $stop_step &&
 	    pass=$PASSED || pass=$FAILED
 	end=$(date +%s)
+
+	# Clean up temporary uncompressed image if it was created
+	if [ -n "$uncompressed_image" ] && [ -f "$uncompressed_image" ]; then
+	    rm -f "$uncompressed_image"
+	fi
+
 	echo " $pass ($(($end-$start))s)" >&3
     done
 done
