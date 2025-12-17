@@ -104,5 +104,11 @@
     "image" : "images/catalina-bmc/openbmc-20251217025154/obmc-phosphor-image-catalina-20251217025154.static.mtd.xz",
     "timeout" : 80,
     "password" : "0penBmc"
+    },
+    {
+    "machine" : "bletchley-bmc",
+    "image" : "images/bletchley-bmc/openbmc-20250128071329/obmc-phosphor-image-bletchley-20250128071329.static.mtd.xz",
+    "timeout" : 80,
+    "password" : "0penBmc"
     }
 ]
