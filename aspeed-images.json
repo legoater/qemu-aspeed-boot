@@ -92,5 +92,29 @@
 	"image" : "images/ast2600-evb/buildroot-2025.11/flash.img",
 	"timeout" : 30,
 	"password" : "passw0rd"
+    },
+    {
+    "machine" : "catalina-bmc",
+    "image" : "images/catalina-bmc/openbmc-20250619123021/obmc-phosphor-image-catalina-20250619123021.static.mtd.xz",
+    "timeout" : 80,
+    "password" : "0penBmc"
+    },
+    {
+    "machine" : "catalina-bmc",
+    "image" : "images/catalina-bmc/openbmc-20251217025154/obmc-phosphor-image-catalina-20251217025154.static.mtd.xz",
+    "timeout" : 80,
+    "password" : "0penBmc"
+    },
+    {
+    "machine" : "bletchley-bmc",
+    "image" : "images/bletchley-bmc/openbmc-20250128071329/obmc-phosphor-image-bletchley-20250128071329.static.mtd.xz",
+    "timeout" : 80,
+    "password" : "0penBmc"
+    },
+    {
+    "machine" : "gb200nvl-bmc",
+    "image" : "images/gb200nvl-obmc/openbmc-20250702182348/obmc-phosphor-image-gb200nvl-obmc-20250702182348.static.mtd.xz",
+    "timeout" : 80,
+    "password" : "0penBmc"
     }
 ]
