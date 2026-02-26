@@ -1,5 +1,5 @@
 FROM fedora:rawhide
 RUN dnf -y update
-RUN dnf -y install --allowerasing gcc git xz make gcc ninja-build glib2-devel git pixman-devel libslirp-devel ccache expect jq bzip2 diffutils findutils python3-packaging
+RUN dnf -y install --allowerasing gcc git xz make gcc ninja-build glib2-devel git pixman-devel libslirp-devel ccache expect jq bzip2 diffutils findutils python3-packaging python3-wheel
 COPY . /build/
 WORKDIR /build

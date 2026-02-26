@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND    noninteractive
 RUN apt-get update -qq
-RUN apt-get install -y libssl-dev build-essential gcc python3 g++ pkg-config libz-dev libpixman-1-dev libfdt-dev git ninja-build libbz2-dev libglib2.0-dev libslirp-dev make ccache expect jq  python3-venv
+RUN apt-get install -y libssl-dev build-essential gcc python3 g++ pkg-config libz-dev libpixman-1-dev libfdt-dev git ninja-build libbz2-dev libglib2.0-dev libslirp-dev make ccache expect jq  python3-venv python3-wheel
 COPY . /build/
 WORKDIR /build
