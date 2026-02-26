@@ -1,6 +1,6 @@
 #!/bin/bash
 
-branch="aspeed-10.2"
+branch="aspeed-11.0"
 
 set -uo pipefail
 set -e
