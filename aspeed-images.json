@@ -31,7 +31,7 @@
     },
     {
 	"machine" : "romulus-bmc",
-	"image" : "images/romulus-bmc/openbmc-20260306053134/obmc-phosphor-image-romulus-20250128071340.static.mtd",
+	"image" : "images/romulus-bmc/openbmc-20260306053134/obmc-phosphor-image-romulus-20260306053134.static.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
