@@ -25,25 +25,25 @@
     },
     {
 	"machine" : "romulus-bmc",
-	"image" : "images/romulus-bmc/openbmc-20230228030340/flash-romulus",
-	"timeout" : 80,
-	"password" : "0penBmc"
-    },
-    {
-	"machine" : "romulus-bmc",
 	"image" : "images/romulus-bmc/openbmc-20250128071340/obmc-phosphor-image-romulus-20250128071340.static.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
-	"machine" : "witherspoon-bmc",
-	"image" : "images/witherspoon-bmc/openbmc-20230228025052/obmc-phosphor-image-witherspoon-20230228025052.ubi.mtd",
+	"machine" : "romulus-bmc",
+	"image" : "images/romulus-bmc/openbmc-20260306053134/obmc-phosphor-image-romulus-20250128071340.static.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
     {
 	"machine" : "witherspoon-bmc",
 	"image" : "images/witherspoon-bmc/openbmc-20240618035022/obmc-phosphor-image-witherspoon-20240618035022.ubi.mtd",
+	"timeout" : 80,
+	"password" : "0penBmc"
+    },
+    {
+	"machine" : "witherspoon-bmc",
+	"image" : "images/witherspoon-bmc/openbmc-20260306053159/obmc-phosphor-image-witherspoon-20240618035022.ubi.mtd",
 	"timeout" : 80,
 	"password" : "0penBmc"
     },
