@@ -42,12 +42,6 @@
 	"password" : "0penBmc"
     },
     {
-	"machine" : "witherspoon-bmc",
-	"image" : "images/witherspoon-bmc/openbmc-20260306053159/obmc-phosphor-image-witherspoon-20240618035022.ubi.mtd",
-	"timeout" : 80,
-	"password" : "0penBmc"
-    },
-    {
 	"machine" : "ast2600-evb",
 	"image" : "images/ast2600-evb/buildroot-2024.11/flash.img",
 	"timeout" : 30,
