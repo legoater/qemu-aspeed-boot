@@ -76,5 +76,11 @@
     "image" : "images/gb200nvl-obmc/openbmc-20250702182348/obmc-phosphor-image-gb200nvl-obmc-20250702182348.static.mtd.xz",
     "timeout" : 80,
     "password" : "0penBmc"
+    },
+    {
+    "machine" : "anacapa-bmc",
+    "image" : "images/anacapa-bmc/openbmc-20260512025228/obmc-phosphor-image-anacapa-20260512025228.static.mtd.xz",
+    "timeout" : 80,
+    "password" : "0penBmc"
     }
 ]

@@ -5,17 +5,19 @@ Aspeed machines supported in QEMU.
 
 ## Supported machines
 
+* `anacapa-bmc`
 * `ast2500-evb`
 * `ast2600-evb`
 * `bletchley-bmc`
-* `gb200nvl-obmc`
+* `catalina-bmc`
+* `gb200nvl-bmc`
 * `palmetto-bmc`
 * `romulus-bmc`
 * `witherspoon-bmc`
 
 ## Building
 
-This ``builroot`` tree contains the default configurations for the
+This ``buildroot`` tree contains the default configurations for the
 Aspeed EVB machines : https://github.com/legoater/buildroot/commits/aspeed
 
 ## Run
