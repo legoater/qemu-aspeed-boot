@@ -212,18 +212,21 @@ expect {
                             error "STALL";   exit 3 }
     "illegal instruction" { error "SIGILL";  exit 4 }
     "Segmentation fault"  { error "SEGV";    exit 5 }
+    eof                   { error "EOF";     exit 6 }
     "login:"              { check_step "login"
                             info "login " }
 }
 send "root\r"
 expect {
     timeout               { error "TIMEOUT"; exit 1 }
+    eof                   { error "EOF";     exit 6 }
     "Password:"           { send "$password\r"; exp_continue }
     "#"
 }
 send "$poweroff\r"
 expect {
     timeout               { error "TIMEOUT"; exit 1 }
+    eof                   { error "EOF";     exit 6 }
     "Execute poweroff -f" { info "poweroff"; exit 0 }
     "shutdown-sh#"        { info "poweroff"; exit 0 }
     "System halted"       { info "poweroff"; exit 0 }
