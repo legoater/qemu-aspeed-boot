@@ -20,6 +20,7 @@ default_machines="palmetto-bmc ast2500-evb romulus-bmc witherspoon-bmc ast2600-e
 
 PASSED="[32mPASSED[0m"
 FAILED="[31mFAILED[0m"
+SKIPPED="[33mSKIPPED[0m"
 
 sdk_kernel_args="\
 systemd.mask=org.openbmc.HostIpmi.service \
@@ -272,6 +273,12 @@ for m in $tests_machines; do
 	image_path="$image"
 	if [ ! -e "$image_path" ]; then
 	    echo "invalid image"  >&3
+	    continue;
+	fi
+
+	qemu="$qemu_prefix/bin/qemu-system-aarch64"
+	if ! "$qemu" -M help 2>/dev/null | grep -q "^${machine} "; then
+	    echo "$SKIPPED (unknown machine)" >&3
 	    continue;
 	fi
 
