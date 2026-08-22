@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-24.04, ubuntu-26.04, ubuntu-rolling, fedora43, fedora44, fedora-rawhide ]
+        os: [ ubuntu-26.04, ubuntu-rolling, fedora44, fedora-rawhide ]
 
     steps:
       - name: Checkout repository
