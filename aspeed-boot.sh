@@ -117,18 +117,15 @@ spawn_qemu()
 	*ast2700*)
 	    qemu="$qemu_prefix/bin/qemu-system-aarch64"
 
-	    uboot_size=$(stat --format=%s -L ${image}/u-boot-nodtb.bin)
-	    uboot_dtb_addr=$((0x400000000 + ${uboot_size}))
 	    loader_args="$qemu_cmd \
--device loader,addr=0x400000000,file=${image}/u-boot-nodtb.bin,force-raw=on \
--device loader,addr=${uboot_dtb_addr},file=${image}/u-boot.dtb,force-raw=on \
--device loader,addr=0x430000000,file=${image}/bl31.bin,force-raw=on \
+-device loader,addr=0x400000000,file=${image}/u-boot.bin,force-raw=on \
+-device loader,addr=0x430000000,file=${image}/trusted-firmware-a/bl31.bin,force-raw=on \
 -device loader,addr=0x430080000,file=${image}/optee/tee-raw.bin,force-raw=on \
 -device loader,addr=0x430000000,cpu-num=0 \
 -device loader,addr=0x430000000,cpu-num=1 \
 -device loader,addr=0x430000000,cpu-num=2 \
 -device loader,addr=0x430000000,cpu-num=3 \
--drive file=$image/image-bmc,format=raw,if=mtd"
+-drive file=${image}/image-bmc,format=raw,if=mtd"
 	    qemu_cmd="$qemu -M ${machine} -m 8G -smp 4 $loader_args"
 	    ;;
 	*)
