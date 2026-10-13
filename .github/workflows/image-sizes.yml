@@ -1,0 +1,16 @@
+name: Image sizes
+
+on: [ push, pull_request, workflow_dispatch ]
+
+permissions:
+  contents: read
+
+jobs:
+  check_image_sizes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check uncompressed flash image sizes
+        run: bash qemu-ci/check-image-sizes.sh
